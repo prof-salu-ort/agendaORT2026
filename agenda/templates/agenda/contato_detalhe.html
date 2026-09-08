@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes: {{ contato.nome }}</title>
+    <link rel="stylesheet" href="{% static 'agenda/estilos.css' %}">
+</head>
+<body>
+    <h1>{{ contato.nome }}</h1>
+    <p><strong>E-mail:</strong> {{ contato.email }}</p>
+    <p><strong>Endereço:</strong> {{ contato.endereco }}</p>
+    <p><strong>Nascimento:</strong> {{ contato.data_nascimento }}</p>
+    <p><a href="{% url 'agenda:contato_editar' contato.pk %}">Editar Contato</a></p>
+    <p><a href="{% url 'agenda:contato_apagar' contato.pk %}">Apagar Contato</a></p>
+
+    <a href="{% url 'agenda:contato_lista' %}">Voltar</a>
+</body>
+</html>

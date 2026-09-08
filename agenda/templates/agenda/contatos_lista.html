@@ -1,8 +1,10 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <title>Lista de contatos</title>
+    <link rel="stylesheet" href="{% static 'agenda/estilos.css' %}">
 </head>
 <body>
   <h1>Meus contatos</h1>
@@ -11,7 +13,7 @@
   {% if contatos %}
     <ul>
       {% for contato in contatos %}
-        <li>{{ contato.nome }} - {{ contato.telefone }}</li>
+        <li><a href="{% url 'agenda:contato_detalhe' contato.pk %}"><strong>{{ contato.nome }}</strong></a></li>
       {% endfor %}
     </ul>
   {% else %}

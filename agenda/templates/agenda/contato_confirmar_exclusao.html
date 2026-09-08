@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Apagar Contato</title>
+    <link rel="stylesheet" href="{% static 'agenda/estilos.css'%}">
+</head>
+<body>
+  <h1>Tem certeza que deseja apagar "{{ contato.nome }}"?</h1>
+  <p>Esta ação não pode ser desfeita.</p>
+
+  <form method="POST">
+    {% csrf_token %}
+    <button type="submit">Sim, quero apagar</button>
+    <a href="{% url 'agenda:contato_detalhe' contato.pk%}">Cancelar</a>
+  </form>
+</body>
+</html>

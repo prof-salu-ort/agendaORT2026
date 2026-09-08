@@ -7,10 +7,11 @@ class ContatoForm(forms.ModelForm):
         model = Contato
 
         #Quais campos serao exibidos no forms
-        fields = ['nome', 'telefone', 'email', 'data_nascimento',
+        fields = ['nome', 'telefone', 'endereco', 'email', 'data_nascimento',
                   'categoria', 'tag']
 
         #Como o campo será exibido no form
         widgets = {
-            'data_nascimento' : forms.DateInput(attrs={'type' : 'date'})
+            'data_nascimento' : forms.DateInput(attrs={'type' : 'date'},
+                                                format='%Y-%m-%d')
         }
