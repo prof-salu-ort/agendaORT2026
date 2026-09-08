@@ -1,21 +1,36 @@
-/* Criar o arquivo em: /agenda/static/agenda/estilos.css
+/* Criar o arquivo em: /agenda/static/agenda/css/estilos.css
 /agenda
 |___/static
 |_______/agenda
-|___________/estilo.css
+|___________/css
+|_______________/estilo.css
 */
 body{
     font-family: Arial, sans-serif; background-color: #f4f4f9;
     color: #333; max-width: 800px; margin: 0 auto; padding: 20px;
-} h1: {
+}
+
+h1 {
     color: #2c3e50;
-} a: {
+}
+
+a {
     color: #3498dc; text-decoration: none;
-} a: hover{
+}
+
+a:hover{
     text-decoration: underline;
-} button {
+}
+
+button {
     background-color: #2ecc71; color: white; padding: 10px 15px;
     border: none; border-radius: 5px; cursor: pointer;
-}button:hover{
+}
+
+button:hover{
     background-color: #27ae60;
+}
+
+#foto {
+    margin: 0 auto; width: 50%;
 }
