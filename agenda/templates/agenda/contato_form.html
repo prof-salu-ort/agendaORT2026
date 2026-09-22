@@ -9,7 +9,7 @@
 <body>
     <h1>Adicionar Novo Contato</h1>
 
-    <form method="POST">
+    <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
 
         {{ form.as_p }}

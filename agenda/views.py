@@ -19,7 +19,7 @@ def contato_lista(request):
 
 def contato_criar(request):
     if request.method == 'POST':
-        form = ContatoForm(request.POST)
+        form = ContatoForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('agenda:contato_lista')
@@ -40,7 +40,7 @@ def contato_editar(request, pk):
 
     if request.method == 'POST':
         #Passa os dados novos e avisa qual contato atualizar
-        form = ContatoForm(request.POST, instance=contato)
+        form = ContatoForm(request.POST, request.FILES, instance=contato)
         if form.is_valid():
             form.save()
             return redirect('agenda:contato_detalhe', pk=contato.pk)

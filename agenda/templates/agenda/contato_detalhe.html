@@ -8,6 +8,12 @@
 </head>
 <body>
     <h1>{{ contato.nome }}</h1>
+    {% if contato.foto %}
+        <img src="{{ contato.foto.url }}" alt="Foto de {{ contato.nome }}" width="150" />
+    {% else %}
+        <p><i>Sem foto de perfil</i></p>
+    {% endif %}
+
     <p><strong>E-mail:</strong> {{ contato.email }}</p>
     <p><strong>Endereço:</strong> {{ contato.endereco }}</p>
     <p><strong>Nascimento:</strong> {{ contato.data_nascimento }}</p>

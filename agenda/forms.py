@@ -7,8 +7,8 @@ class ContatoForm(forms.ModelForm):
         model = Contato
 
         #Quais campos serao exibidos no forms
-        fields = ['nome', 'telefone', 'endereco', 'email', 'data_nascimento',
-                  'categoria', 'tag']
+        fields = ['nome', 'telefone', 'endereco', 'email', 'data_nascimento', 'foto',
+                  'categoria', 'tag', ]
 
         #Como o campo será exibido no form
         widgets = {
