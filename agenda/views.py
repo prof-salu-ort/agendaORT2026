@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from .models import Contato
 from .forms import ContatoForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
 def ola_mundo(request):
@@ -10,6 +11,17 @@ def ola_mundo(request):
 
 def pagina_inicial(request):
     return render(request, 'agenda/index.html')
+
+def registrar_usuario(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('login')
+    else:
+        form = UserCreationForm
+
+    return render(request, 'registration/register.html', {'form' : form})
 
 #Retorna todos os contatos da agenda
 @login_required()

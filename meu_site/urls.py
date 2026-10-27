@@ -3,10 +3,13 @@ from django.urls import path, include
 
 from django.conf import settings
 from django.conf.urls.static import static
+from agenda.views import registrar_usuario
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('agenda/', include('agenda.urls'))
+    path('agenda/', include('agenda.urls')),
+    path('register/', registrar_usuario, name='register'),
+    path('contas/', include('django.contrib.auth.urls')),
 ]
 
 if settings.DEBUG:
