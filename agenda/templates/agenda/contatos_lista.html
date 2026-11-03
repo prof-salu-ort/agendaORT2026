@@ -10,6 +10,11 @@
   <h1>Meus contatos</h1>
   <a href="{% url 'agenda:home'%}">Voltar ao menu</a>
 
+  <form method="GET" action="{% url 'agenda:contato_lista' %}">
+      <input type="text" name="q" placeholder="Buscar por nome ou e-mail..." value="{{ request.GET.q|default:'' }}">
+      <button type="submit" class="btn">Pesquisar</button>
+  </form>
+
   {% if contatos %}
     <ul>
       {% for contato in contatos %}
@@ -19,5 +24,12 @@
   {% else %}
     <p>Nenhum contato cadastrado.</p>
   {% endif %}
+
+<div>
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn">Sair</button>
+        </form>
+    </div>
 </body>
 </html>

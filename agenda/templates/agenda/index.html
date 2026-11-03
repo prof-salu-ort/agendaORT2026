@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Menu Principal</title>
@@ -18,5 +18,12 @@
         <li><a href="{% url 'agenda:contato_lista' %}">Visualizar Contatos</a></li>
         <li><a href="{% url 'agenda:contato_criar' %}">Adicionar Contato</a></li>
     </ul>
+
+    <div>
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn">Sair</button>
+        </form>
+    </div>
 </body>
 </html>

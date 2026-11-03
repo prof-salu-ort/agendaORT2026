@@ -4,6 +4,7 @@ from .models import Contato
 from .forms import ContatoForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
+from django.db.models import Q
 
 # Create your views here.
 def ola_mundo(request):
@@ -27,7 +28,14 @@ def registrar_usuario(request):
 @login_required()
 def contato_lista(request):
     #ORM (Object-Relational Mapping)
+
     contatos = Contato.objects.filter(user=request.user)
+
+    #Verifica se o usuario digitou algo na barra de buscas
+    query = request.GET.get('q')
+
+    if query:
+        contatos = contatos.filter(Q(nome__icontains=query) | Q(email__icontains=query))
     #Renderiza o html passando a lista de contatos
     return render(request, 'agenda/contatos_lista.html', {'contatos' : contatos})
 
